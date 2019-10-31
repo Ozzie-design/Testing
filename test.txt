@@ -1,0 +1,39 @@
+#About this Dataset
+#2018 Open Payments DataSet
+
+open_payments <- read.csv("C:/Users/Ozofu/Desktop/Ozofu Big Data Processing/open_payments.csv", header =TRUE)
+
+
+#To check the distribution of our open_payments dataset
+head (open_payments)
+
+#To check summary of our dataset - Exploring our Datasets
+summary (open_payments)
+
+#To check for missing values in our dataset
+
+is.na(open_payments) # returns TRUE of crime is missing a value(s)
+#To check for NULL values in our dataset
+
+cl <- c()
+for (i in 1:ncol(open_payments)){
+    c <- sum(is.na(open_payments[i]))
+    if (c>0)
+        cl <- c(cl, i)
+}
+print(cl)
+
+#As there is null values, I will replace or remove NULL Values as appropriate for the dataset
+
+#Explore data using plots and focusing on quality 
+#Downloading packages needed for exploring this dataset
+
+str(open_payments)
+
+install.packages("corr")
+library("corr")
+
+corr(open_payments)
+    
+# Acknowledgements
+
